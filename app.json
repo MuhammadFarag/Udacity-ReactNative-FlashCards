@@ -1,0 +1,17 @@
+{
+  "name": "UdacityReactNativeFlashCards",
+  "displayName": "UdacityReactNativeFlashCards",
+  "expo": {
+    "name": "UdacityReactNativeFlashCards",
+    "slug": "UdacityReactNativeFlashCards",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
