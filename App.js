@@ -7,7 +7,7 @@ const decks = [
   {name: "deck 3", cards: 15}
 ]
 
-function Item({name, cards}) {
+function Deck({name, cards}) {
   return (
     <View style={styles.item}>
       <Text style={styles.deckName}>{name}</Text>
@@ -21,8 +21,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={decks}
-        renderItem={({item}) => <Item name={item.name} cards={item.cards}/>}
-        keyExtractor={item => item.name}
+        renderItem={({item: deck}) => <Deck name={deck.name} cards={deck.cards}/>}
+        keyExtractor={deck => deck.name}
       />
     </SafeAreaView>
   );
