@@ -10,8 +10,8 @@ const decks = [
 function Item({name, cards}) {
   return (
     <View style={styles.item}>
-      <Text style={styles.welcome}>{name}</Text>
-      <Text style={styles.welcome}>{cards} Cards</Text>
+      <Text style={styles.deckName}>{name}</Text>
+      <Text style={styles.deckCards}>{cards} Cards</Text>
     </View>
   );
 }
@@ -32,18 +32,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     marginTop: Constants.statusBarHeight,
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
+  item: {
+    backgroundColor: 'lightblue',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  deckName: {
+    fontSize: 24,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  deckCards: {
+    fontSize: 16,
     textAlign: 'center',
-    color: '#333333',
     marginBottom: 5,
   },
 });
