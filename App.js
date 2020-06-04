@@ -30,6 +30,14 @@ function Deck({name, cards, navigation}) {
 function ViewDeck() {
   return <View>
     <Text>View Deck</Text>
+    <Button
+      title="Add Card"
+      onPress={() => Alert.alert('Add Card')}
+    />
+    <Button
+      title="Study Cards"
+      onPress={() => Alert.alert('Study Cards')}
+    />
   </View>
 }
 
