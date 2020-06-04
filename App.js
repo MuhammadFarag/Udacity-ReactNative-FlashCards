@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {FlatList, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
+import {Alert, Button, FlatList, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Constants from 'expo-constants';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const decks = [
   {name: "deck 1", cards: 3},
@@ -17,12 +17,12 @@ function Deck({name, cards, navigation}) {
       onPress={() => {
         console.log("Pressed ", name)
         navigation.navigate('Deck');
-      } }
+      }}
     >
-    <View style={styles.item}>
-      <Text style={styles.deckName}>{name}</Text>
-      <Text style={styles.deckCards}>{cards} Cards</Text>
-    </View>
+      <View style={styles.item}>
+        <Text style={styles.deckName}>{name}</Text>
+        <Text style={styles.deckCards}>{cards} Cards</Text>
+      </View>
     </TouchableOpacity>
   );
 }
@@ -45,19 +45,20 @@ function ViewDeck({navigation}) {
   </View>
 }
 
-function AddCard(){
+function AddCard() {
   return <View>
     <Text>Add Card</Text>
   </View>
 }
 
-function StudyCards(){
+function StudyCards() {
   return <View>
     <Text>Study Cards</Text>
   </View>
 }
 
 const Stack = createStackNavigator();
+
 function Decks({navigation}) {
   return <FlatList
     data={decks}
@@ -102,10 +103,10 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Deck" component={ViewDeck} />
-          <Stack.Screen name="Add Card" component={AddCard} />
-          <Stack.Screen name="Study Cards" component={StudyCards} />
+          <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="Deck" component={ViewDeck}/>
+          <Stack.Screen name="Add Card" component={AddCard}/>
+          <Stack.Screen name="Study Cards" component={StudyCards}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
