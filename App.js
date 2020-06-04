@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, SafeAreaView, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, TextInput, Button, Alert} from 'react-native';
 import Constants from 'expo-constants';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -43,8 +43,18 @@ function Decks({navigation}) {
 }
 
 function AddDeck() {
+  const [text, setText] = React.useState('')
   return <View>
     <Text>Add Deck</Text>
+    <TextInput
+      placeholder="Name"
+      onChangeText={text => setText(text)}
+      value={text}
+    />
+    <Button
+      title="Press me"
+      onPress={() => Alert.alert('Simple Button pressed')}
+    />
   </View>
 }
 
