@@ -27,17 +27,33 @@ function Deck({name, cards, navigation}) {
   );
 }
 
-function ViewDeck() {
+function ViewDeck({navigation}) {
   return <View>
     <Text>View Deck</Text>
     <Button
       title="Add Card"
-      onPress={() => Alert.alert('Add Card')}
+      onPress={() => {
+        navigation.navigate('Add Card')
+      }}
     />
     <Button
       title="Study Cards"
-      onPress={() => Alert.alert('Study Cards')}
+      onPress={() => {
+        navigation.navigate('Study Cards')
+      }}
     />
+  </View>
+}
+
+function AddCard(){
+  return <View>
+    <Text>Add Card</Text>
+  </View>
+}
+
+function StudyCards(){
+  return <View>
+    <Text>Study Cards</Text>
   </View>
 }
 
@@ -88,6 +104,8 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Deck" component={ViewDeck} />
+          <Stack.Screen name="Add Card" component={AddCard} />
+          <Stack.Screen name="Study Cards" component={StudyCards} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
