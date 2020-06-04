@@ -42,9 +42,9 @@ function Decks({navigation}) {
   />
 }
 
-function AddCard() {
+function AddDeck() {
   return <View>
-    <Text>Add Card</Text>
+    <Text>Add Deck</Text>
   </View>
 }
 
@@ -59,7 +59,7 @@ function Home() {
     }}
   >
     <Tabs.Screen name="Home" component={Decks}/>
-    <Tabs.Screen name="Add Card" component={AddCard}/>
+    <Tabs.Screen name="Add Deck" component={AddDeck}/>
   </Tabs.Navigator>;
 }
 
