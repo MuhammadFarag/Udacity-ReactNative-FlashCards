@@ -2,7 +2,7 @@ import {Text, TouchableOpacity, View} from "react-native";
 import {styles} from "../styles";
 import * as React from "react";
 
-export function Deck({name, cards, navigation}) {
+export function DeckCard({name, cards, navigation}) {
   return (
     <TouchableOpacity
       onPress={() => {

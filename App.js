@@ -8,7 +8,7 @@ import {ViewDeck} from "./components/ViewDeck";
 import {AddCard} from "./components/AddCard";
 import {StudyCards} from "./components/StudyCards";
 import {styles} from "./styles";
-import {Decks} from "./components/Decks";
+import {DeckCardsList} from "./components/DeckCardsList";
 import {store} from "./store";
 import {AddDeck} from "./components/AddDeck";
 
@@ -23,7 +23,7 @@ function Home() {
       style: {backgroundColor: "powderblue"},
     }}
   >
-    <Tabs.Screen name="Home" component={Decks}/>
+    <Tabs.Screen name="Decks List" component={DeckCardsList}/>
     <Tabs.Screen name="Add Deck" component={AddDeck}/>
   </Tabs.Navigator>;
 }
