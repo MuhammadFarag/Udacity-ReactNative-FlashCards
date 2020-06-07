@@ -2,7 +2,7 @@ import {Button, Text, View} from "react-native";
 import * as React from "react";
 import {useSelector} from "react-redux";
 
-export function StudyCards({route: {params: {deckId}}}) {
+export function Quiz({route: {params: {deckId}}}) {
   const [counter, setCounter] = React.useState(0)
   const [showAnswer, setShowAnswer] = React.useState(false)
   const cards = useSelector(state => state.decks[deckId].cards)

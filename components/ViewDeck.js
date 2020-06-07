@@ -19,7 +19,7 @@ export function ViewDeck({navigation, route: {params: {deckId}}}) {
     <Button
       title="Study Cards"
       onPress={() => {
-        navigation.navigate('Study Cards', {
+        navigation.navigate('Quiz', {
           deckId: deckId
         })
       }}

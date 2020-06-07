@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import {Button, Text, TextInput, View} from "react-native";
 import {newDeck} from "../store";
 
-export function AddDeck({navigation}) {
+export function NewDeck({navigation}) {
   const [text, setText] = React.useState('')
   const dispatch = useDispatch()
 

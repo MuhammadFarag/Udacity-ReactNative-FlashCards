@@ -6,11 +6,11 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from "react-redux";
 import {ViewDeck} from "./components/ViewDeck";
 import {AddCard} from "./components/AddCard";
-import {StudyCards} from "./components/StudyCards";
+import {Quiz} from "./components/Quiz";
 import {styles} from "./styles";
-import {DeckCardsList} from "./components/DeckCardsList";
+import {DeckList} from "./components/DeckList";
 import {store} from "./store";
-import {AddDeck} from "./components/AddDeck";
+import {NewDeck} from "./components/NewDeck";
 
 const Stack = createStackNavigator();
 const Tabs = createMaterialTopTabNavigator();
@@ -23,8 +23,8 @@ function Home() {
       style: {backgroundColor: "powderblue"},
     }}
   >
-    <Tabs.Screen name="Decks List" component={DeckCardsList}/>
-    <Tabs.Screen name="Add Deck" component={AddDeck}/>
+    <Tabs.Screen name="Deck List" component={DeckList}/>
+    <Tabs.Screen name="New Deck" component={NewDeck}/>
   </Tabs.Navigator>;
 }
 
@@ -38,7 +38,7 @@ export default function App() {
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name="View Deck" component={ViewDeck}/>
             <Stack.Screen name="Add Card" component={AddCard}/>
-            <Stack.Screen name="Study Cards" component={StudyCards}/>
+            <Stack.Screen name="Quiz" component={Quiz}/>
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
