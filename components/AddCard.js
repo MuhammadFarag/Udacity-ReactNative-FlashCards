@@ -24,7 +24,7 @@ export function AddCard({navigation, route: {params: {deckId}}}) {
     <Button
       title="Press me"
       onPress={() => {
-        dispatch(addCard(deckId, {question, answer}))
+        dispatch(addCard(deckId, question, answer))
         setQuestion('')
         setAnswer('')
         navigation.navigate('Home');
