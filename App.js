@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Alert, Button, FlatList, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Button, FlatList, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Constants from 'expo-constants';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -66,8 +66,10 @@ function Decks({navigation}) {
   />
 }
 
-function AddDeck() {
+function AddDeck({navigation}) {
   const [text, setText] = React.useState('')
+  const dispatch = useDispatch()
+
   return <View>
     <Text>Add Deck</Text>
     <TextInput
@@ -77,7 +79,11 @@ function AddDeck() {
     />
     <Button
       title="Press me"
-      onPress={() => Alert.alert('Simple Button pressed')}
+      onPress={() => {
+        dispatch(newDeck(text))
+        setText('')
+        navigation.navigate('Home');
+      }}
     />
   </View>
 }
