@@ -5,8 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {combineReducers, createStore} from "redux";
-import {useDispatch, useSelector} from "react-redux";
-import {Provider} from "react-redux";
+import {Provider, useDispatch, useSelector} from "react-redux";
 
 function Deck({name, cards, navigation}) {
   return (
@@ -105,7 +104,6 @@ function Home() {
   }, [dispatch])
 
 
-
   return <Tabs.Navigator
     tabBarOptions={{
       labelStyle: {fontSize: 12},
@@ -148,16 +146,16 @@ export default function App() {
   return (
     <Provider store={store}>
 
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="Deck" component={ViewDeck}/>
-          <Stack.Screen name="Add Card" component={AddCard}/>
-          <Stack.Screen name="Study Cards" component={StudyCards}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="Deck" component={ViewDeck}/>
+            <Stack.Screen name="Add Card" component={AddCard}/>
+            <Stack.Screen name="Study Cards" component={StudyCards}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
     </Provider>
   );
 }
