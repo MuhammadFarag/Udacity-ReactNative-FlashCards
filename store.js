@@ -11,8 +11,11 @@ function decksReducer(state = {}, action) {
       const id = generateUID()
       state = {
         ...state,
-        [id]: action.deck
+        [id]: {id: id, ...action.deck}
       }
+      return state
+    case "ADD_CARD":
+      state[action.deckId].cards.push(action.card)
       return state
     default:
       return state
@@ -22,7 +25,18 @@ function decksReducer(state = {}, action) {
 export function newDeck(name) {
   return {
     type: "ADD_DECK",
-    deck: {name: name, cards: 0}
+    deck: {name: name, cards: []}
+  }
+}
+
+export function addCard(deckId, question, answer) {
+  return {
+    type: "ADD_CARD",
+    deckId: deckId,
+    card: {
+      question,
+      answer
+    }
   }
 }
 

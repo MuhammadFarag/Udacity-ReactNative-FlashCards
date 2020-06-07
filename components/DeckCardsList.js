@@ -8,7 +8,7 @@ export function DeckCardsList({navigation}) {
 
   return <FlatList
     data={decks}
-    renderItem={({item: deck}) => <DeckCard name={deck.name} cards={deck.cards} navigation={navigation}/>}
+    renderItem={({item: deck}) => <DeckCard id={deck.id} name={deck.name} cards={deck.cards} navigation={navigation}/>}
     keyExtractor={deck => deck.name}
   />
 }
