@@ -9,7 +9,7 @@ import {AddCard} from "./components/AddCard";
 import {Quiz} from "./components/Quiz";
 import {styles} from "./styles";
 import {DeckList} from "./components/DeckList";
-import {store} from "./store";
+import {initialize, store} from "./store";
 import {NewDeck} from "./components/NewDeck";
 
 const Stack = createStackNavigator();
@@ -29,9 +29,11 @@ function Home() {
 }
 
 export default function App() {
+  React.useEffect(() => {
+    store.dispatch(initialize())
+  })
   return (
     <Provider store={store}>
-
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <Stack.Navigator>
