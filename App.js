@@ -4,12 +4,9 @@ import Constants from 'expo-constants';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-
-const decks = [
-  {name: "deck 1", cards: 3},
-  {name: "deck 2", cards: 0},
-  {name: "deck 3", cards: 15}
-]
+import {combineReducers, createStore} from "redux";
+import {useDispatch, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 
 function Deck({name, cards, navigation}) {
   return (
@@ -60,6 +57,8 @@ function StudyCards() {
 const Stack = createStackNavigator();
 
 function Decks({navigation}) {
+  const decks = useSelector(state => Object.values(state.decks))
+
   return <FlatList
     data={decks}
     renderItem={({item: deck}) => <Deck name={deck.name} cards={deck.cards} navigation={navigation}/>}
@@ -87,6 +86,20 @@ const Tabs = createMaterialTopTabNavigator();
 
 
 function Home() {
+
+  const dispatch = useDispatch()
+
+
+  React.useEffect(() => {
+    dispatch(newDeck("Deck 1"))
+    dispatch(newDeck("Deck 2"))
+    dispatch(newDeck("Deck 3"))
+
+
+  }, [dispatch])
+
+
+
   return <Tabs.Navigator
     tabBarOptions={{
       labelStyle: {fontSize: 12},
@@ -98,8 +111,37 @@ function Home() {
   </Tabs.Navigator>;
 }
 
+function generateUID() {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+
+function decksReducer(state = {}, action) {
+  switch (action.type) {
+    case "ADD_DECK":
+      const id = generateUID()
+      state = {
+        ...state,
+        [id]: action.deck
+      }
+      return state
+    default:
+      return state
+  }
+}
+
+function newDeck(name) {
+  return {
+    type: "ADD_DECK",
+    deck: {name: name, cards: 0}
+  }
+}
+
+export const store = createStore(combineReducers({decks: decksReducer}))
+
 export default function App() {
   return (
+    <Provider store={store}>
+
     <SafeAreaView style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
@@ -110,6 +152,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
+    </Provider>
   );
 }
 
