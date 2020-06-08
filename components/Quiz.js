@@ -2,7 +2,7 @@ import {Button, Text, View} from "react-native";
 import * as React from "react";
 import {useSelector} from "react-redux";
 
-export function Quiz({route: {params: {deckId}}}) {
+export function Quiz({navigation, route: {params: {deckId}}}) {
   const [counter, setCounter] = React.useState(0)
   const [showAnswer, setShowAnswer] = React.useState(false)
   const cards = useSelector(state => state.decks[deckId].cards)
@@ -14,6 +14,21 @@ export function Quiz({route: {params: {deckId}}}) {
       <Text>Score: </Text>
       <Text>Correct: {score.correct}</Text>
       <Text>Incorrect: {score.incorrect}</Text>
+      <Button
+        title="Restart Quiz"
+        onPress={() => {
+          setCounter(0)
+          setScore({correct: 0, incorrect: 0})
+        }}
+      />
+      <Button
+        title="Back to Deck"
+        onPress={() => {
+          navigation.navigate('View Deck', {
+            deckId: deckId
+          });
+        }}
+      />
     </View>
   }
 

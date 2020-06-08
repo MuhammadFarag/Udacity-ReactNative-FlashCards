@@ -27,7 +27,10 @@ export function AddCard({navigation, route: {params: {deckId}}}) {
         dispatch(addCard(deckId, question, answer))
         setQuestion('')
         setAnswer('')
-        navigation.navigate('Home');
+        navigation.navigate('View Deck', {
+          deckId: deckId
+        });
+
       }}
     />
 
