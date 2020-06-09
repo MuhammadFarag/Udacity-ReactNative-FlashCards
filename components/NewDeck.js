@@ -15,7 +15,7 @@ export function NewDeck({navigation}) {
       value={text}
     />
     <Button
-      title="Press me"
+      title="Create Deck"
       onPress={() => {
         dispatch(newDeck(text))
         setText('')
