@@ -11,6 +11,7 @@ import {styles} from "./styles";
 import {DeckList} from "./components/DeckList";
 import {initialize, store} from "./store";
 import {NewDeck} from "./components/NewDeck";
+import {setLocalNotification} from "./utils/helpers";
 
 const Stack = createStackNavigator();
 const Tabs = createMaterialTopTabNavigator();
@@ -31,6 +32,9 @@ function Home() {
 export default function App() {
   React.useEffect(() => {
     store.dispatch(initialize())
+  })
+  React.useEffect(() => {
+    setLocalNotification()
   })
   return (
     <Provider store={store}>
